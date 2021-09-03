@@ -17,6 +17,10 @@ import { SoftwareArchitekt } from '../model/software-architekt';
 })
 export class MainCalcComponent {
 
+    readonly DEFAULT_MEETINGSTUNDENSATZ = 0;
+    readonly DEFAULT_MEETINGKOSTEN = 0;
+    readonly DEFAULT_MEETINGDAUER = 1;
+
     readonly JOB_LIST = new Map<Job, number>([
         [ new Entwickler(), 0 ],
         [ new SoftwareArchitekt(), 0 ],
@@ -29,16 +33,19 @@ export class MainCalcComponent {
         [ new Geschaeftsfuehrer(), 0 ]
     ])
 
-    meetingkosten = 0
+    // Büro, Arbeitgeberanteil am Gehalt, Hardware, Software, etc.
+    // Wert ist geschätzt
+    faktorWeitererUnkosten = 2
 
-    constructor() {
-    }
+    meetingkosten = this.DEFAULT_MEETINGKOSTEN
+    meetingdauer = this.DEFAULT_MEETINGDAUER
+    meetingstundensatz = this.DEFAULT_MEETINGSTUNDENSATZ
 
     public berechneMeetingkosten() {
         let newMeetingkosten = 0
 
         this.JOB_LIST.forEach((anzahl: number, job: Job) => {
-            newMeetingkosten = newMeetingkosten + (job.stundensatz * anzahl)
+            newMeetingkosten = newMeetingkosten + ((job.stundensatz * this.meetingdauer * anzahl) * this.faktorWeitererUnkosten)
         })
 
         this.meetingkosten = newMeetingkosten;
@@ -55,9 +62,23 @@ export class MainCalcComponent {
 
         if (currentTeilnehmerAnzahl > 0) {
             this.JOB_LIST.set(job, this.JOB_LIST.get(job)!.valueOf() - 1)
+
+            this.berechneMeetingkosten()
         }
+    }
+
+    public addMeetingdauerInIncrements() {
+        this.meetingdauer = this.meetingdauer + 0.25
 
         this.berechneMeetingkosten()
+    }
+
+    public subtractMeetingdauerInIncrements() {
+        if (this.meetingdauer > 0) {
+            this.meetingdauer = this.meetingdauer - 0.25
+
+            this.berechneMeetingkosten()
+        }
     }
 
     public resetAllTeilnehmer() {
@@ -65,6 +86,8 @@ export class MainCalcComponent {
             this.JOB_LIST.set(job, 0)
         })
 
-        this.meetingkosten = 0
+        this.meetingkosten = this.DEFAULT_MEETINGKOSTEN
+        this.meetingdauer = this.DEFAULT_MEETINGDAUER
+        this.meetingstundensatz = this.DEFAULT_MEETINGSTUNDENSATZ;
     }
 }

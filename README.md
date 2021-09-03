@@ -1,16 +1,17 @@
 # MeetingMoney
 
+Ein Kalkulator für Meetingkosten basierend auf der Dauer und Art und Anzahl der Teilnehmer.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.4.
 
 ## Ideen
-- Meetingdauer einstellen
-- Zwischen Junior, normalen und Senior Entwicklern unterscheiden
-- Detailliertere Aufteilung der Kosten nach:
+- Detailliertere Aufteilung der Kosten nach (auch über Mat-Gridlist lösbar):
   - Gehalt (inkl. Arbeitgeberanteil (ist vielleicht per Faktor drauf addierbar, Bsp.: Bruttogehalt * 1,4))
   - Büro
   - Computerausstattung etc.
   - Software
   - Meetingraum
+- Presets für Teilnehmerzusammenstellungen
 
 ## Gehaltsquellen
 - https://www.gehalt.de/arbeit/wer-verdient-wie-viel-im-it-bereich
