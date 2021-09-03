@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppVersionService } from './service/app-version.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'meeting-money';
+
+  constructor(public appVersionService: AppVersionService) {
+  }
 }
