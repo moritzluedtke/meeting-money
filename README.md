@@ -15,8 +15,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Build for prod
 
-Das Projekt ist über Github Pages gehostet. Um dies zu deployen gilt es nur im `main` Branch ein `ng build` auszuführen und dann die Changes bzw. den `/dist`
-Ordner direkt auf main zu committen.
+Das Projekt ist über Github Pages gehostet. Um dies zu deployen gilt es nur im `main` Branch ein `ng build` auszuführen
+und dann die Changes bzw. den `/docs` Ordner direkt auf main zu committen.
 
 ## Gehaltsquellen
 - https://www.gehalt.de/arbeit/wer-verdient-wie-viel-im-it-bereich
