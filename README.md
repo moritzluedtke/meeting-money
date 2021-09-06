@@ -13,6 +13,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
   - Meetingraum
 - Presets für Teilnehmerzusammenstellungen
 
+## Build for prod
+
+Das Projekt ist über Github Pages gehostet. Um dies zu deployen gilt es nur im `main` Branch ein `ng build` auszuführen und dann die Changes bzw. den `/dist`
+Ordner direkt auf main zu committen.
+
 ## Gehaltsquellen
 - https://www.gehalt.de/arbeit/wer-verdient-wie-viel-im-it-bereich
 - https://www.computerwoche.de/a/der-grosse-gehaltsvergleich-in-der-informatik,3218378
